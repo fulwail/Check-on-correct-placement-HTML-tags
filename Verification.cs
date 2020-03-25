@@ -8,35 +8,35 @@ namespace ConsoleApp1
 {
     public class Verification: IVerification
     {
-        public void CheckOnCorrectPlacement()
+
+        
+        public void CheckOnCorrectPlacement(ConfigurationContext context)
         {
+
             WorkWithHooks hook = new WorkWithHooks();
             ISource file = new FileSource();
-            ConfigurationHelper helper = new ConfigurationHelper();
             string text;
-            try { 
-                    
-               text = file.ReadSource(helper.GetInputPath());
+            try
+            {
+                text = file.ReadSource(context.InputPath);
             }
             catch (Exception ex)
             {
-                Console.WriteLine( $"Не удалось прочитать файл: {ex.Message}");
+                Console.WriteLine($"Не удалось прочитать файл: {ex.Message}");
                 return;
             }
-
-            bool searchResult = hook.CheckHooks(text);
-            file.WriteToDestination(text + "/ " + searchResult, helper.GetOutputPath());
+            bool searchResult = hook.CheckHooks(text, context.HooksStorage);
+            file.WriteToDestination( text + "/ " + searchResult, context.OutputPath);
 
             if (searchResult)
             {
                 Console.WriteLine(text+"\n Скобки были расставлены правильно");
-                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine(text+ " \n Скобки были расставлены не правильно!!!");
-                Console.ReadKey();
+                Console.WriteLine(text+ " \n Скобки были расставлены не правильно!!!");             
             }
+     //        context.Reset(); 
         }
     }
 }

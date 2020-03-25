@@ -11,12 +11,10 @@ namespace ConsoleApp1
   
         internal class WorkWithHooks
     {
-        public bool CheckHooks(string text)
+        public bool CheckHooks(string text,Dictionary<string,string> dictionary)
         {
-            ConfigurationHelper use = new ConfigurationHelper();
-          
             string[] textRegex= Regex.Split(text, @"(<[^>]*>)");
-            Dictionary<string, string> hookStorage = use.GetDictionaryToken();   
+            Dictionary<string, string> hookStorage = dictionary;   
             Stack<string> hook = new Stack<string>();     
             try
             {

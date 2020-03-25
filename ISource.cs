@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
    public interface ISource
     {
-        string ReadSource(string source);
-        void WriteToDestination(string text, string source);
+        string ReadSource(string context);
+        void WriteToDestination(string text, string context);
     }
 }

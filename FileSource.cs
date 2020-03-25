@@ -10,16 +10,15 @@ namespace ConsoleApp1
 {
     class FileSource : ISource
     {   
-        public string ReadSource(string source)
+        public string ReadSource(string context)
         {
-            using (StreamReader sr = new StreamReader(source))
+            using (StreamReader sr = new StreamReader(context))
                 return sr.ReadToEnd();
         }
 
-        public void WriteToDestination(string text, string source)
+        public void WriteToDestination(string text, string context)
         {
-            ConfigurationHelper use = new ConfigurationHelper();
-            string path = use.GetOutputPath();
+            string path = context;
             using (StreamWriter sw = File.AppendText(path))
                 sw.WriteLine(text);
         }

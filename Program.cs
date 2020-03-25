@@ -12,9 +12,31 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            IVerification Verification = new Verification();
-            Verification.CheckOnCorrectPlacement();
-        }       
+          
+            var director = new Director();
+            var builder = new ConfigurationBuilder();
+            director.ConfigurationBuilder = builder;
+            IVerification verification = new Verification();
+
+            director.BuildForTokens();
+            var product = builder.GetProduct();
+            verification.CheckOnCorrectPlacement(product);
+            Console.WriteLine(product.ListParts());
+
+            director.BuildForTokens2();
+            product = builder.GetProduct();
+            verification.CheckOnCorrectPlacement(product);
+            Console.WriteLine(product.ListParts());
+
+            director.BuildForTokens3();
+            product = builder.GetProduct();
+            verification.CheckOnCorrectPlacement(product);
+            Console.WriteLine(product.ListParts());
+
+            Console.ReadKey();
+
+
+        }
     }
 }
 
