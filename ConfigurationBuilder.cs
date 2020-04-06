@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Configuration;
 
 namespace ConsoleApp1
 {
+
     public class ConfigurationBuilder : IBuilder
     {
         private ConfigurationContext _configuration;
-
+     
         public ConfigurationBuilder()
         {
             this.Reset();
@@ -17,19 +19,26 @@ namespace ConsoleApp1
         {
             this._configuration = new ConfigurationContext();
         }
+        public void GetId()
+        {
+            Console.WriteLine("Введите id тестового варианта");
+            this._configuration.Id = Console.ReadLine();
+        }
         public void BuildInputPath()
         {
             string path= ConfigurationManager.AppSettings["PathInput"];
             this._configuration.Add("Путь до файла: "+path);
             this._configuration.InputPath = path;
         }
+
         public void BuildOutputPath()
         {
             string path= ConfigurationManager.AppSettings["PathOutput"];
             this._configuration.Add("Местоположение файла с логами: "+path);
             this._configuration.OutputPath = path;
         }
-
+       
+        
         private void GetDictionaryTokenInternal(string beginTokenName, string endTokenName)
         {
             string[] beginWord = ConfigurationManager.AppSettings[beginTokenName].Split(new char[] { ' ' });
@@ -49,14 +58,6 @@ namespace ConsoleApp1
             GetDictionaryTokenInternal("BeginToken", "EndToken");
         }
 
-        public void BuildDictionaryToken2()
-        {
-            GetDictionaryTokenInternal("BeginToken2", "EndToken2");
-        }
-        public void BuildDictionaryToken3()
-        {
-            GetDictionaryTokenInternal("BeginToken3", "EndToken3");
-        }
         public ConfigurationContext GetProduct()
         {
             ConfigurationContext result = this._configuration;

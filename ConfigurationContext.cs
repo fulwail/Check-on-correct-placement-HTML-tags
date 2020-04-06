@@ -10,6 +10,7 @@ namespace ConsoleApp1
         public string InputPath { get; set; }
 
         public string OutputPath { get; set; }
+        public string Id { get; set; }      
 
         public Dictionary<string, string> HooksStorage { get; set; }
 

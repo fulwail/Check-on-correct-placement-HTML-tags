@@ -12,32 +12,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-          
+
             var director = new Director();
             var builder = new ConfigurationBuilder();
             director.ConfigurationBuilder = builder;
-            IVerification verification = new Verification();
-
-            director.BuildForTokens();
+            IVerification verificationFile = new VerificationFile();
+            director.BuildFromFileSource();
             var product = builder.GetProduct();
-            verification.CheckOnCorrectPlacement(product);
+            verificationFile.CheckOnCorrectPlacement(product);
             Console.WriteLine(product.ListParts());
 
-            director.BuildForTokens2();
+            IVerification verificationDB = new VerificationDatabase();
+            director.BuildFromDatabase();
             product = builder.GetProduct();
-            verification.CheckOnCorrectPlacement(product);
-            Console.WriteLine(product.ListParts());
-
-            director.BuildForTokens3();
-            product = builder.GetProduct();
-            verification.CheckOnCorrectPlacement(product);
-            Console.WriteLine(product.ListParts());
-
+            verificationDB.CheckOnCorrectPlacement(product);
             Console.ReadKey();
-
-
         }
     }
+
 }
 
 //{()<}>                 //false
@@ -45,3 +37,4 @@ namespace ConsoleApp1
 //]12 { 123 (1)asd}asd   // false
 //12 { 123 (1)asd[]}asd  // true
 //12 { 123 (1)as}d}asd   // false
+

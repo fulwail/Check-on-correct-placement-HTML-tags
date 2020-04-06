@@ -9,6 +9,6 @@ namespace ConsoleApp1
    public interface ISource
     {
         string ReadSource(string context);
-        void WriteToDestination(string text, string context);
+        void WriteToDestination(bool searchresult, string context, int count);
     }
 }

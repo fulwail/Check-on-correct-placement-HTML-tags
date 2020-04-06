@@ -13,24 +13,18 @@ namespace ConsoleApp1
         {
             set { _configuration = value; }
         }
-        public void BuildForTokens ()
+        public void BuildFromFileSource()
         {
             _configuration.BuildInputPath();
             _configuration.BuildOutputPath();
             _configuration.BuildDictionaryToken();
 
         }
-        public void BuildForTokens2()
+       
+        public void BuildFromDatabase()
         {
-            _configuration.BuildInputPath();
-            _configuration.BuildOutputPath();
-            _configuration.BuildDictionaryToken2();
-        }
-        public void BuildForTokens3()
-        {
-            _configuration.BuildInputPath();
-            _configuration.BuildOutputPath();
-            _configuration.BuildDictionaryToken3();
+            _configuration.GetId();
+            _configuration.BuildDictionaryToken();
         }
 
     }

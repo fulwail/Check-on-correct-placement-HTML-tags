@@ -16,11 +16,11 @@ namespace ConsoleApp1
                 return sr.ReadToEnd();
         }
 
-        public void WriteToDestination(string text, string context)
+        public void WriteToDestination(bool searchresult, string context,int count)
         {
             string path = context;
             using (StreamWriter sw = File.AppendText(path))
-                sw.WriteLine(text);
+                sw.WriteLine(searchresult + "/число лексем: " + count);
         }
     }
 

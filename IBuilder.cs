@@ -11,9 +11,7 @@ namespace ConsoleApp1
         void BuildInputPath();
         void BuildOutputPath();
         void BuildDictionaryToken();
-        void BuildDictionaryToken2();
-        void BuildDictionaryToken3();
-
+        void GetId();
 
     }
 }
