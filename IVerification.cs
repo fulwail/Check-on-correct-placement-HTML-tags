@@ -8,6 +8,6 @@ namespace ConsoleApp1
 {
     interface IVerification
     {
-        void CheckOnCorrectPlacement(ConfigurationContext context);
+        void CheckOnCorrectPlacement(ConfigurationContext context, string source);
     }
 }

@@ -12,6 +12,8 @@ namespace ConsoleApp1
         void BuildOutputPath();
         void BuildDictionaryToken();
         void GetId();
-
+        void BuildExceptionDatabase();
+        void BuildExceptionFileSource();
+       
     }
 }

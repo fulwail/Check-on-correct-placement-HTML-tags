@@ -9,7 +9,7 @@ using System.IO;
 namespace ConsoleApp1
 {
     class FileSource : ISource
-    {   
+    {
         public string ReadSource(string context)
         {
             using (StreamReader sr = new StreamReader(context))

@@ -18,13 +18,14 @@ namespace ConsoleApp1
             _configuration.BuildInputPath();
             _configuration.BuildOutputPath();
             _configuration.BuildDictionaryToken();
-
+            _configuration.BuildExceptionFileSource();
         }
        
         public void BuildFromDatabase()
         {
             _configuration.GetId();
             _configuration.BuildDictionaryToken();
+            _configuration.BuildExceptionDatabase();
         }
 
     }

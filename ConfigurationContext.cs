@@ -7,11 +7,11 @@ namespace ConsoleApp1
 {
     public class ConfigurationContext
     {
-        public string InputPath { get; set; }
+        public string InputSource { get; set; }
 
-        public string OutputPath { get; set; }
-        public string Id { get; set; }      
-
+        public string OutputSource { get; set; }
+        public string ExceptionText { get; set; }
+        public string Reader { get; set; }
         public Dictionary<string, string> HooksStorage { get; set; }
 
         private List<string> _parts = new List<string>();
@@ -32,7 +32,7 @@ namespace ConsoleApp1
 
             str = str.Remove(str.Length - 2);
 
-            return "Выполнены следующие задачи: \n" + str + "\n";
+            return "Использовалась следующие параметры конфигурация: \n" + str + "\n";
         }
     }
 }

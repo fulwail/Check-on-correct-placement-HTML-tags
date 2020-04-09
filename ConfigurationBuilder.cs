@@ -22,23 +22,38 @@ namespace ConsoleApp1
         public void GetId()
         {
             Console.WriteLine("Введите id тестового варианта");
-            this._configuration.Id = Console.ReadLine();
+            string id = Console.ReadLine();
+            this._configuration.Add("Id Тестового примера: " + id);
+            this._configuration.InputSource = id;
+            this._configuration.OutputSource = id;
         }
         public void BuildInputPath()
         {
             string path= ConfigurationManager.AppSettings["PathInput"];
             this._configuration.Add("Путь до файла: "+path);
-            this._configuration.InputPath = path;
+            this._configuration.InputSource = path;
         }
 
         public void BuildOutputPath()
         {
             string path= ConfigurationManager.AppSettings["PathOutput"];
             this._configuration.Add("Местоположение файла с логами: "+path);
-            this._configuration.OutputPath = path;
+            this._configuration.OutputSource = path;
         }
-       
-        
+        public void BuildExceptionDatabase()
+        {
+            string Excp = ConfigurationManager.AppSettings["ExceptionDatabase"];
+            this._configuration.Add("Описание ошибки получения входного ресурса: " + Excp);
+            this._configuration.ExceptionText = Excp;
+        }
+        public void BuildExceptionFileSource()
+        {
+            string Excp = ConfigurationManager.AppSettings["ExceptionFileSource"];
+            this._configuration.Add("Описание ошибки получения входного ресурса: " + Excp);
+            this._configuration.ExceptionText = Excp;
+        } 
+
+
         private void GetDictionaryTokenInternal(string beginTokenName, string endTokenName)
         {
             string[] beginWord = ConfigurationManager.AppSettings[beginTokenName].Split(new char[] { ' ' });

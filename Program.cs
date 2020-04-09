@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Autofac;
 
 namespace ConsoleApp1
 {
@@ -13,19 +14,24 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
+          
             var director = new Director();
             var builder = new ConfigurationBuilder();
             director.ConfigurationBuilder = builder;
-            IVerification verificationFile = new VerificationFile();
-            director.BuildFromFileSource();
-            var product = builder.GetProduct();
-            verificationFile.CheckOnCorrectPlacement(product);
-            Console.WriteLine(product.ListParts());
 
-            IVerification verificationDB = new VerificationDatabase();
+            IVerification verification = new Verification();
+
+            director.BuildFromFileSource();
+            var configuration = builder.GetProduct(); 
+            verification.CheckOnCorrectPlacement(configuration, "FileSource");
+
+            Console.WriteLine(configuration.ListParts());
+
             director.BuildFromDatabase();
-            product = builder.GetProduct();
-            verificationDB.CheckOnCorrectPlacement(product);
+            configuration = builder.GetProduct();
+            verification.CheckOnCorrectPlacement(configuration, "DatabaseSource");
+
+            Console.WriteLine(configuration.ListParts());
             Console.ReadKey();
         }
     }
