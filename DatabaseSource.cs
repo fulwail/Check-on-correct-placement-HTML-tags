@@ -8,7 +8,7 @@ using System.IO;
 using DBCheckedTestCase;
 
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
     class DatabaseSource : ISource
     {
@@ -18,9 +18,9 @@ namespace ConsoleApp1
         {
             using (DatabaseContext db = new DatabaseContext())
             {
-                var database = db.TestСase;
+                var database = db.TestСases;
                 int id = Convert.ToInt32(context);
-                string text = (from c in db.TestСase
+                string text = (from c in db.TestСases
                                where c.Id == id
                                select c.Text).SingleOrDefault();
                 return text;
@@ -34,12 +34,12 @@ namespace ConsoleApp1
             using (DatabaseContext db = new DatabaseContext())
             {
               
-                var result = new ResultOfCheckings();
+                var result = new ResultOfChecking();
                 result.IdTestCase = Convert.ToInt32(context);
                 result.DateTime = DateTime.Now;
                 result.Result = Convert.ToString(searchresult);
                 result.CountToken = count;
-                db.ResultOfChecking.Add(result);
+                db.ResultOfCheckings.Add(result);
                 db.SaveChanges();
             }
         }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
 
     class ContainerConfig
@@ -13,8 +13,8 @@ namespace ConsoleApp1
         public static IContainer Configure()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<DatabaseSource>().As<ISource>().Named<ISource>("DatabaseSource");
-            builder.RegisterType<FileSource>().As<ISource>().Named<ISource>("FileSource");
+            builder.RegisterType<DatabaseSource>().As<ISource>();
+ //           builder.RegisterType<FileSource>().As<ISource>().Named<ISource>("FileSource");
             return builder.Build();
         }
         }

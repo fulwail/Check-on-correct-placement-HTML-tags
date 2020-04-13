@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Configuration;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
 
     public class ConfigurationBuilder : IBuilder

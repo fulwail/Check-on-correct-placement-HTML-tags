@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
     interface IVerification
     {
-        void CheckOnCorrectPlacement(ConfigurationContext context, string source);
+        void CheckOnCorrectPlacement();
     }
 }

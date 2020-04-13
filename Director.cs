@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
     class Director
     {
@@ -13,7 +13,7 @@ namespace ConsoleApp1
         {
             set { _configuration = value; }
         }
-        public void BuildFromFileSource()
+        public void BuildForFileSource()
         {
             _configuration.BuildInputPath();
             _configuration.BuildOutputPath();
@@ -21,11 +21,21 @@ namespace ConsoleApp1
             _configuration.BuildExceptionFileSource();
         }
        
-        public void BuildFromDatabase()
+        public void BuildFoDatabaseSource()
         {
             _configuration.GetId();
             _configuration.BuildDictionaryToken();
             _configuration.BuildExceptionDatabase();
+        }
+        public void BuildForSource(ISource source)
+        {
+            if (source is FileSource)
+                BuildForFileSource();
+
+            else if (source is DatabaseSource)
+                BuildFoDatabaseSource();
+
+            else throw new Exception("Неподдерживаемый источник данных");
         }
 
     }

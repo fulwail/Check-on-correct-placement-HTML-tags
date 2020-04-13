@@ -12,8 +12,8 @@ namespace DBCheckedTestCase
         public DatabaseContext() : base("DbConnection")
         { }
 
-        public DbSet<ResultOfCheckings> ResultOfChecking { get; set; }
-        public DbSet<TestСases> TestСase { get; set; }
+        public DbSet<ResultOfChecking> ResultOfCheckings { get; set; }
+        public DbSet<TestСase> TestСases { get; set; }
 
     }
 }

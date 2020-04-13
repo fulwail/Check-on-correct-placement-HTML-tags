@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Text.RegularExpressions;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
   
         internal class WorkWithHooks

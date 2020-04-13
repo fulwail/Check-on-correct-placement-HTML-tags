@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
     class FileSource : ISource
     {

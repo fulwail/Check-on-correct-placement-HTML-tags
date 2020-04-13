@@ -7,35 +7,40 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 
-namespace ConsoleApp1
+namespace CheckOnCorrectPlacement
 {
     class Verification : IVerification
     {
 
-        public void CheckOnCorrectPlacement(ConfigurationContext context,string source )
+        public void CheckOnCorrectPlacement( )
         {
-            string text;
             var container = ContainerConfig.Configure();
             using (var scope = container.BeginLifetimeScope())
             {
-                var app = scope.ResolveNamed<ISource>(source);
+                var director = new Director();
+                var builder = new ConfigurationBuilder();
+                director.ConfigurationBuilder = builder;
 
-                var kernel = new StandardKernel();
-                kernel.Load(Assembly.GetExecutingAssembly());
+                var source = scope.Resolve<ISource>();
+                director.BuildForSource(source);
+                var config = builder.GetProduct();
+
                 WorkWithHooks hook = new WorkWithHooks();
+                string text;
                 try
                 {
-                    text = app.ReadSource(context.InputSource);
-
+                    text = source.ReadSource(config.InputSource);
                 }
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"{context.ExceptionText} {ex.Message}");
+                    Console.WriteLine($"{config.ExceptionText} {ex.Message}");
                     return;
                 }
-                bool searchResult = hook.CheckHooks(text, context.HooksStorage);
-                app.WriteToDestination(searchResult, context.OutputSource, hook.count);
+                bool searchResult = hook.CheckHooks(text, config.HooksStorage);
+                source.WriteToDestination(searchResult, config.OutputSource, hook.count);
+
+                Console.WriteLine(config.ListParts());
 
                 if (searchResult)
                 {
