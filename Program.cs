@@ -21,7 +21,7 @@ namespace CheckOnCorrectPlacement
 
             verification.InputData = Console.ReadLine();
 
-            verification.CheckOnCorrectPlacement();
+            verification.CheckOnCorrectPlacement("FileSource");
 
 
             Console.ReadKey();

@@ -58,10 +58,10 @@ namespace WebInterface
                         }
                         else
                         {
-                            Verification verification = new Verification();
+                            IVerification verification = new Verification();
                             FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
                             verification.InputData = Server.MapPath("~/Uploads/" + FileUpload1.FileName);        
-                            verification.CheckOnCorrectPlacement() ;
+                            verification.CheckOnCorrectPlacement("FileSource") ;
                             Label1.Text = "Проверка произошла успешно";
                         }
                     }
@@ -71,7 +71,7 @@ namespace WebInterface
             {
                 Verification verification = new Verification();
                 verification.InputData = TextBoxId.Text;
-                verification.CheckOnCorrectPlacement();
+                verification.CheckOnCorrectPlacement("DatabaseSource");
                 FileUpload1.Visible = false;
             }
           

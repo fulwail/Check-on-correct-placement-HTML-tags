@@ -13,10 +13,10 @@ namespace CheckOnCorrectPlacement
     {
         public string InputData { get; set; }
 
-        public void CheckOnCorrectPlacement()
+        public void CheckOnCorrectPlacement(string sourceType)
         {
 
-            var container = ContainerConfig.ConfigureFilesource();
+            var container = ContainerConfig.Configure();
           
             using (var scope = container.BeginLifetimeScope())
             {
@@ -24,7 +24,7 @@ namespace CheckOnCorrectPlacement
                 var builder = new ConfigurationBuilder();
                 director.ConfigurationBuilder = builder;
 
-                var source = scope.Resolve<ISource>();
+                var source = scope.ResolveNamed<ISource>(sourceType);
                 director.BuildForSource(source);
                 var config = builder.GetProduct();
         

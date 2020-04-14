@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CheckOnCorrectPlacement
 {
-    interface IVerification
+    public interface IVerification
     {
         string InputData { get; set; }
-        void CheckOnCorrectPlacement();
+        void CheckOnCorrectPlacement(string sourceType);
     }
 }
