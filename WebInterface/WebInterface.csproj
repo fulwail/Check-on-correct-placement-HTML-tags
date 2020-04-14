@@ -51,6 +51,7 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -60,6 +61,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -76,9 +78,9 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WievTestCase.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DaraService.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,6 +89,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WievTestCase.aspx.cs">
+      <DependentUpon>WievTestCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WievTestCase.aspx.designer.cs">
+      <DependentUpon>WievTestCase.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -102,9 +111,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBCheckedTestCase\DBCheckedTestCase.csproj">
+    <ProjectReference Include="..\CheckOnCorrectPlacement.csproj">
+      <Project>{c679a5e8-f245-46da-99fb-cc7b7a18db9c}</Project>
+      <Name>CheckOnCorrectPlacement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBCheckedTestCase\SqlDatabase.csproj">
       <Project>{42381f0e-f2c0-4e15-9e5f-8cab2f59236d}</Project>
-      <Name>DBCheckedTestCase</Name>
+      <Name>SqlDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

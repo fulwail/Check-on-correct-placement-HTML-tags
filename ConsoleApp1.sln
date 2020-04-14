@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOnCorrectPlacement", "CheckOnCorrectPlacement.csproj", "{C679A5E8-F245-46DA-99FB-CC7B7A18DB9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCheckedTestCase", "DBCheckedTestCase\DBCheckedTestCase.csproj", "{42381F0E-F2C0-4E15-9E5F-8CAB2F59236D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlDatabase", "DBCheckedTestCase\SqlDatabase.csproj", "{42381F0E-F2C0-4E15-9E5F-8CAB2F59236D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebInterface", "WebInterface\WebInterface.csproj", "{56C5A1DD-AE0C-4608-998B-17551CE16A47}"
 EndProject

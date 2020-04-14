@@ -8,15 +8,20 @@ using Autofac;
 namespace CheckOnCorrectPlacement
 {
 
-    class ContainerConfig
+   public class ContainerConfig
     {
-        public static IContainer Configure()
+        public static IContainer ConfigureDatabase()
         {
-            var builder = new ContainerBuilder();
+            var builder = new ContainerBuilder();   
             builder.RegisterType<DatabaseSource>().As<ISource>();
- //           builder.RegisterType<FileSource>().As<ISource>().Named<ISource>("FileSource");
             return builder.Build();
         }
+        public static IContainer ConfigureFilesource()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<FileSource>().As<ISource>(); 
+            return builder.Build();
         }
+    }
     }
 

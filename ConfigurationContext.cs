@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace CheckOnCorrectPlacement
 {
+    
     public class ConfigurationContext
     {
         public string InputSource { get; set; }
@@ -12,6 +13,7 @@ namespace CheckOnCorrectPlacement
         public string OutputSource { get; set; }
         public string ExceptionText { get; set; }
         public string Reader { get; set; }
+        public string Text { get; set; }
         public Dictionary<string, string> HooksStorage { get; set; }
 
         private List<string> _parts = new List<string>();

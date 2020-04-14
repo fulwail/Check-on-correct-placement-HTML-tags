@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace CheckOnCorrectPlacement
 {
   
-        internal class WorkWithHooks
+        public class WorkWithHooks
     {
         public int count { get; set; }
         public bool CheckHooks(string text,Dictionary<string,string> dictionary)

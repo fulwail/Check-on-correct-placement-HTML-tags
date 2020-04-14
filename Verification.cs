@@ -9,12 +9,15 @@ using Autofac;
 
 namespace CheckOnCorrectPlacement
 {
-    class Verification : IVerification
+   public class Verification : IVerification
     {
+        public string InputData { get; set; }
 
-        public void CheckOnCorrectPlacement( )
+        public void CheckOnCorrectPlacement()
         {
-            var container = ContainerConfig.Configure();
+
+            var container = ContainerConfig.ConfigureFilesource();
+          
             using (var scope = container.BeginLifetimeScope())
             {
                 var director = new Director();
@@ -24,12 +27,12 @@ namespace CheckOnCorrectPlacement
                 var source = scope.Resolve<ISource>();
                 director.BuildForSource(source);
                 var config = builder.GetProduct();
-
+        
                 WorkWithHooks hook = new WorkWithHooks();
                 string text;
                 try
                 {
-                    text = source.ReadSource(config.InputSource);
+                    text = source.ReadSource(InputData);
                 }
 
                 catch (Exception ex)
@@ -38,7 +41,7 @@ namespace CheckOnCorrectPlacement
                     return;
                 }
                 bool searchResult = hook.CheckHooks(text, config.HooksStorage);
-                source.WriteToDestination(searchResult, config.OutputSource, hook.count);
+                source.WriteToDestination(searchResult, hook.count);
 
                 Console.WriteLine(config.ListParts());
 

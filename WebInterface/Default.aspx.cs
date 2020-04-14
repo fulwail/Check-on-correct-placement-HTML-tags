@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DBCheckedTestCase;
+using SqlDatabase;
+using CheckOnCorrectPlacement;
 
 namespace WebInterface
 {
@@ -12,10 +13,19 @@ namespace WebInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DaraService data = new DaraService();
-            data.ReadDatabase(); ;
-            ListWiewResult.DataSource = data.results;
+            
+            DataService<ResultOfChecking> data = new DataService<ResultOfChecking>();
+            var results = data.GetChekingResult().Select(x => new ResultOfChecking
+            {
+                Id = x.Id,
+                DateTime = x.DateTime,
+                Result = x.Result,
+                CountToken = x.CountToken
+            });
+            ListWiewResult.DataSource = data.GetChekingResult();
             ListWiewResult.DataBind();
         }
+
+       
     }
 }

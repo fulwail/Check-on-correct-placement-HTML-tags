@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Configuration;
+using System.IO;
 
 namespace CheckOnCorrectPlacement
 {
@@ -19,14 +20,7 @@ namespace CheckOnCorrectPlacement
         {
             this._configuration = new ConfigurationContext();
         }
-        public void GetId()
-        {
-            Console.WriteLine("Введите id тестового варианта");
-            string id = Console.ReadLine();
-            this._configuration.Add("Id Тестового примера: " + id);
-            this._configuration.InputSource = id;
-            this._configuration.OutputSource = id;
-        }
+        
         public void BuildInputPath()
         {
             string path= ConfigurationManager.AppSettings["PathInput"];
@@ -51,8 +45,8 @@ namespace CheckOnCorrectPlacement
             string Excp = ConfigurationManager.AppSettings["ExceptionFileSource"];
             this._configuration.Add("Описание ошибки получения входного ресурса: " + Excp);
             this._configuration.ExceptionText = Excp;
-        } 
-
+        }
+      
 
         private void GetDictionaryTokenInternal(string beginTokenName, string endTokenName)
         {

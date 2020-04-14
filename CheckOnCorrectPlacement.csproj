@@ -187,10 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationBuilder.cs" />
+    <Compile Include="DataService.cs" />
     <Compile Include="DatabaseSource.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="ContainerConfig.cs" />
+    <Compile Include="TestCaseEditor.cs" />
     <Compile Include="Verification.cs" />
     <Compile Include="IVerification.cs" />
     <Compile Include="ISource.cs" />
@@ -207,9 +209,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DBCheckedTestCase\DBCheckedTestCase.csproj">
+    <ProjectReference Include="DBCheckedTestCase\SqlDatabase.csproj">
       <Project>{42381f0e-f2c0-4e15-9e5f-8cab2f59236d}</Project>
-      <Name>DBCheckedTestCase</Name>
+      <Name>SqlDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

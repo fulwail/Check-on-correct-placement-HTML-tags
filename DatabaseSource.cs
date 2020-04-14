@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.IO;
-using DBCheckedTestCase;
+using SqlDatabase;
 
 
 namespace CheckOnCorrectPlacement
 {
-    class DatabaseSource : ISource
+    public class DatabaseSource : ISource
     {
 
        
@@ -25,17 +25,15 @@ namespace CheckOnCorrectPlacement
                                select c.Text).SingleOrDefault();
                 return text;
             }
-           
         }
+       
 
-        public void WriteToDestination(bool searchresult, string context,int count)
+        public void WriteToDestination(bool searchresult,int count)
         {
             
             using (DatabaseContext db = new DatabaseContext())
             {
-              
                 var result = new ResultOfChecking();
-                result.IdTestCase = Convert.ToInt32(context);
                 result.DateTime = DateTime.Now;
                 result.Result = Convert.ToString(searchresult);
                 result.CountToken = count;

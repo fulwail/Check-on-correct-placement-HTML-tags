@@ -11,7 +11,6 @@ namespace CheckOnCorrectPlacement
         void BuildInputPath();
         void BuildOutputPath();
         void BuildDictionaryToken();
-        void GetId();
         void BuildExceptionDatabase();
         void BuildExceptionFileSource();
        

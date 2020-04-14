@@ -13,11 +13,16 @@ namespace CheckOnCorrectPlacement
     {
         static void Main(string[] args)
         {
+            //ConfigurationContext context = new ConfigurationContext();
+            //Console.WriteLine("Введите id тестового варианта");
 
 
             IVerification verification = new Verification();
 
+            verification.InputData = Console.ReadLine();
+
             verification.CheckOnCorrectPlacement();
+
 
             Console.ReadKey();
         }

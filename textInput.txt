@@ -1,1 +1,1 @@
-<body> stock </body>
+<body> stock </body><body> stock </body>

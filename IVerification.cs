@@ -8,6 +8,7 @@ namespace CheckOnCorrectPlacement
 {
     interface IVerification
     {
+        string InputData { get; set; }
         void CheckOnCorrectPlacement();
     }
 }
