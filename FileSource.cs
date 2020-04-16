@@ -18,7 +18,6 @@ namespace CheckOnCorrectPlacement
             return sr.ReadToEnd();
         }
 
-
         public void WriteToDestination(bool searchresult, int count)
         {
             //ConfigurationContext context = new ConfigurationContext();
@@ -40,7 +39,6 @@ namespace CheckOnCorrectPlacement
 }
 
 
-  //  https://metanit.com/sharp/aspnet5/21.3.php
 
 
 

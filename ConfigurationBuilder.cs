@@ -37,7 +37,7 @@ namespace CheckOnCorrectPlacement
         public void BuildExceptionDatabase()
         {
             string Excp = ConfigurationManager.AppSettings["ExceptionDatabase"];
-            this._configuration.Add("Описание ошибки получения входного ресурса: " + Excp);
+            this._configuration.Add("Описание ошибки при поиске Id тестового варианта: " + Excp);
             this._configuration.ExceptionText = Excp;
         }
         public void BuildExceptionFileSource()

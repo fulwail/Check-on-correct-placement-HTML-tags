@@ -27,13 +27,11 @@ namespace CheckOnCorrectPlacement
                                where c.Id == id
                                select c.Text).SingleOrDefault();
                 return text;
-            
         }
        
 
         public void WriteToDestination(bool searchresult,int count)
         {
-            
             using (DatabaseContext db = new DatabaseContext())
             {
                 var result = new ResultOfChecking();
