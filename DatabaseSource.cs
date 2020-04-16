@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.IO;
+using SqlDatabase.Model;
+
 using SqlDatabase;
+
 
 
 namespace CheckOnCorrectPlacement
@@ -16,15 +19,15 @@ namespace CheckOnCorrectPlacement
        
         public string ReadSource(string context)
         {
-            using (DatabaseContext db = new DatabaseContext())
-            {
+            DatabaseContext db = new DatabaseContext();
+           
                 var database = db.TestСases;
                 int id = Convert.ToInt32(context);
                 string text = (from c in db.TestСases
                                where c.Id == id
                                select c.Text).SingleOrDefault();
                 return text;
-            }
+            
         }
        
 

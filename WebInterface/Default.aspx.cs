@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SqlDatabase;
-using CheckOnCorrectPlacement;
+using DataTransferObject;
+using DataTransferObject.Model;
+
+
 
 namespace WebInterface
 {
@@ -14,15 +16,14 @@ namespace WebInterface
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            DataService<ResultOfChecking> data = new DataService<ResultOfChecking>();
-            var results = data.GetChekingResult().Select(x => new ResultOfChecking
+            var data = new DataService();
+            ListWiewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingDto
             {
                 Id = x.Id,
                 DateTime = x.DateTime,
                 Result = x.Result,
                 CountToken = x.CountToken
             });
-            ListWiewResult.DataSource = data.GetChekingResult();
             ListWiewResult.DataBind();
         }
 

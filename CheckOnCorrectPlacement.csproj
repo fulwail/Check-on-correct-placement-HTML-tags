@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C679A5E8-F245-46DA-99FB-CC7B7A18DB9C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp1</RootNamespace>
-    <AssemblyName>ConsoleApp1</AssemblyName>
+    <RootNamespace>CheckOnCorrectPlacement</RootNamespace>
+    <AssemblyName>CheckOnCorrectPlacement</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -187,12 +187,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationBuilder.cs" />
-    <Compile Include="DataService.cs" />
     <Compile Include="DatabaseSource.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="ContainerConfig.cs" />
-    <Compile Include="TestCaseEditor.cs" />
     <Compile Include="Verification.cs" />
     <Compile Include="IVerification.cs" />
     <Compile Include="ISource.cs" />

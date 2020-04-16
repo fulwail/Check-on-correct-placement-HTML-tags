@@ -41,8 +41,17 @@ namespace CheckOnCorrectPlacement
                     return;
                 }
                 bool searchResult = hook.CheckHooks(text, config.HooksStorage);
-                source.WriteToDestination(searchResult, hook.count);
+                try
+                {
+                    source.WriteToDestination(searchResult, hook.count);
+                }
 
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Описание ошибки при выводе результатов проверки:{ex.Message}");
+                    return;
+                }
+               
                 Console.WriteLine(config.ListParts());
 
                 if (searchResult)

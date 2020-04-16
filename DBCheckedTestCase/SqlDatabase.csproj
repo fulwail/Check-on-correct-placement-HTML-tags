@@ -8,8 +8,8 @@
     <ProjectGuid>{42381F0E-F2C0-4E15-9E5F-8CAB2F59236D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBCheckedTestCase</RootNamespace>
-    <AssemblyName>DBCheckedTestCase</AssemblyName>
+    <RootNamespace>SqlDatabase</RootNamespace>
+    <AssemblyName>SqlDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

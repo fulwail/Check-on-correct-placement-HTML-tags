@@ -115,9 +115,9 @@
       <Project>{c679a5e8-f245-46da-99fb-cc7b7a18db9c}</Project>
       <Name>CheckOnCorrectPlacement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DBCheckedTestCase\SqlDatabase.csproj">
-      <Project>{42381f0e-f2c0-4e15-9e5f-8cab2f59236d}</Project>
-      <Name>SqlDatabase</Name>
+    <ProjectReference Include="..\DataService\DataTransferObject.csproj">
+      <Project>{de8c9598-a644-4def-b8d6-4008cfa33f06}</Project>
+      <Name>DataTransferObject</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
