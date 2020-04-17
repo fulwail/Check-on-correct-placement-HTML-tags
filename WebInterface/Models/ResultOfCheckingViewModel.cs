@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace DataService.Model
+namespace WebInterface.Models
 {
-    public class ResultOfCheckingDto 
+    public class ResultOfCheckingViewModel
     {
         public int Id { get; set; }
-        public DateTime DateTime { get; set; }
+        public string DateTime { get; set; }
         public string Result { get; set; }
         public int CountToken { get; set; }
     }

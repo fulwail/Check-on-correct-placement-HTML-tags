@@ -20,19 +20,11 @@ namespace CheckOnCorrectPlacement
 
         public void WriteToDestination(bool searchresult, int count)
         {
-            //ConfigurationContext context = new ConfigurationContext();
-            //string path = context.InputSource;
-            //using (StreamWriter sw = File.AppendText(path))
-            //    sw.WriteLine(searchresult + "/число лексем: " + count);
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var result = new ResultOfChecking();
-                result.DateTime = DateTime.Now;
-                result.Result = Convert.ToString(searchresult);
-                result.CountToken = count;
-                db.ResultOfCheckings.Add(result);
-                db.SaveChanges();
-            }
+            ConfigurationContext context = new ConfigurationContext();
+            string path = context.InputSource;
+            using (StreamWriter sw = File.AppendText(path))
+                sw.WriteLine(searchresult + "/число лексем: " + count);
+
         }
     }
 

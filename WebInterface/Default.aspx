@@ -5,19 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="ResultOfChecking" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="StyleSheet.css"/>
     <title>Result of Checking</title>
 </head>
 <body>
     <form id="form1" runat="server">
-       <h2>Checking Result</h2>
-
+        <div id="menu">
+            <ul>
+                <li><a href="Default.aspx">Check on Html tags</a></li>
+                <li><a href="WievTestCase.aspx">Result of checking</a></li>
+            </ul>
+        </div>
+        <div>
+            <br />
+            <h2>Checking Result</h2>
         <asp:ListView ID="ListWiewResult" runat="server">
          <LayoutTemplate>
         <table runat="server">
             <tr runat="server">
                 <td runat="server">
                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                        <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
+                        <tr runat="server" style="background-color:cornflowerblue;color: #FFFFFF;">
                             <th runat="server">Id</th>
                             <th runat="server">DateTime</th>
                             <th runat="server">Result</th>
@@ -53,6 +61,7 @@
         </ItemTemplate>
            
         </asp:ListView>
+            </div>
     </form>
 </body>
 </html>

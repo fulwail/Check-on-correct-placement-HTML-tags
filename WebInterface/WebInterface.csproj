@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="StyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="WievTestCase.aspx" />
   </ItemGroup>
@@ -88,6 +89,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResultOfCheckingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WievTestCase.aspx.cs">
       <DependentUpon>WievTestCase.aspx</DependentUpon>
@@ -108,16 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CheckOnCorrectPlacement.csproj">
       <Project>{c679a5e8-f245-46da-99fb-cc7b7a18db9c}</Project>
       <Name>CheckOnCorrectPlacement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataService\DataTransferObject.csproj">
+    <ProjectReference Include="..\DataService\DataService.csproj">
       <Project>{de8c9598-a644-4def-b8d6-4008cfa33f06}</Project>
-      <Name>DataTransferObject</Name>
+      <Name>DataService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

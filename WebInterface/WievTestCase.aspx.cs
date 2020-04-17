@@ -7,8 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using CheckOnCorrectPlacement;
-
-
+using DataService;
 
 namespace WebInterface
 {
@@ -23,22 +22,38 @@ namespace WebInterface
         {
 
         }
-      
 
-        
 
+
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxId.Visible = false;
+            Label1.Text = "";
+            FileUpload1.Visible = true;
+        }
         protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
-                TextBoxId.Visible = true;
-                Label1.Text = "Введите Id тестового примера";
-                FileUpload1.Visible = false;
+            TextBoxId.Visible = true;
+            TextBoxId.Height = default;
+            TextBoxId.Width = default;
+            TextBoxId.TextMode = TextBoxMode.SingleLine;
+            Label1.Text = "Введите Id тестового примера";
+            FileUpload1.Visible = false;
           
         }
- 
+        protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxId.Visible = true;
+            TextBoxId.Height = 500;
+            TextBoxId.Width = 500;
+            TextBoxId.TextMode = TextBoxMode.MultiLine;
+            Label1.Text = "Введите тестовый пример";
+            FileUpload1.Visible = false;
+        }
 
         protected void CheckButton_Click(object sender, EventArgs e)
         {
-           
+            Label2.Text = "";
             if (RadioButton1.Checked)
             {
                 if (FileUpload1.HasFile)
@@ -58,32 +73,55 @@ namespace WebInterface
                         }
                         else
                         {
-                            IVerification verification = new Verification();
+                            
+
                             FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
-                            verification.InputData = Server.MapPath("~/Uploads/" + FileUpload1.FileName);        
-                            verification.CheckOnCorrectPlacement("FileSource") ;
-                            Label1.Text = "Проверка произошла успешно";
+                            WorkWithWeb verification = new WorkWithWeb();
+                            string text= verification.ReadText(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
+                            verification.CheckOnCorrectPlacement(text) ;
+                            Label2.Text = "Проверка произошла успешно";
                         }
                     }
                 }
             }
             else if(RadioButton2.Checked)
             {
-                Verification verification = new Verification();
-                verification.InputData = TextBoxId.Text;
-                verification.CheckOnCorrectPlacement("DatabaseSource");
-                FileUpload1.Visible = false;
+                try
+                {
+                    DataServiceContext dataService = new DataServiceContext();
+                     
+                    WorkWithWeb verification = new WorkWithWeb();   
+                    verification.CheckOnCorrectPlacement(dataService.ReadId(Convert.ToInt32(TextBoxId.Text)));
+                    FileUpload1.Visible = false;
+                    Label2.Text = "Проверка произошла успешно";
+                }
+                catch (Exception ex)
+                {
+                    Label2.Text = ($"Ошибка при вводе Id: {ex.Message}");
+                    return;
+                }
             }
-          
+            else if (RadioButton3.Checked)
+            {
+                try
+                {
+                    WorkWithWeb verification = new WorkWithWeb();
+                    verification.CheckOnCorrectPlacement(TextBoxId.Text);
+                    FileUpload1.Visible = false;
+                    Label2.Text = "Проверка произошла успешно";
+                }
+
+                catch (Exception ex)
+                {
+                    Label2.Text = ($"Ошибка при вводе текста: {ex.Message}");
+                    return;
+                }             
+            }
+
         }
 
-        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-                TextBoxId.Visible = false;
-                Label1.Text = "";
-                FileUpload1.Visible = true;  
-        }
+       
 
-     
+       
     }
 }

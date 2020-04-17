@@ -42,6 +42,15 @@ namespace WebInterface
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
+        /// RadioButton3 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+
+        /// <summary>
         /// FileUpload1 элемент управления.
         /// </summary>
         /// <remarks>
@@ -76,5 +85,14 @@ namespace WebInterface
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CheckButton;
+
+        /// <summary>
+        /// Label2 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DataTransferObject;
-using DataTransferObject.Model;
-
-
+using DataService;
+using DataService.Model;
+using WebInterface.Models;
 
 namespace WebInterface
 {
@@ -16,11 +15,11 @@ namespace WebInterface
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            var data = new DataService();
-            ListWiewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingDto
+            var data = new DataServiceContext();
+            ListWiewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingViewModel
             {
                 Id = x.Id,
-                DateTime = x.DateTime,
+                DateTime = x.DateTime.ToShortDateString(),
                 Result = x.Result,
                 CountToken = x.CountToken
             });
