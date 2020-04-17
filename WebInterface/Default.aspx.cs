@@ -16,14 +16,14 @@ namespace WebInterface
         {
             
             var data = new DataServiceContext();
-            ListWiewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingViewModel
+            ListViewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingViewModel
             {
                 Id = x.Id,
                 DateTime = x.DateTime.ToShortDateString(),
                 Result = x.Result,
                 CountToken = x.CountToken
             });
-            ListWiewResult.DataBind();
+            ListViewResult.DataBind();
         }
 
        

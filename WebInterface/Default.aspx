@@ -12,16 +12,16 @@
     <form id="form1" runat="server">
         <div id="menu">
             <ul>
-                <li><a href="Default.aspx">Check on Html tags</a></li>
-                <li><a href="WievTestCase.aspx">Result of checking</a></li>
+                <li><a href="WievTestCase.aspx">Check on Html tags</a></li>
+                <li><a href="Default.aspx">Result of checking</a></li>
             </ul>
         </div>
         <div>
             <br />
             <h2>Checking Result</h2>
-        <asp:ListView ID="ListWiewResult" runat="server">
+        <asp:ListView ID="ListViewResult" runat="server">
          <LayoutTemplate>
-        <table runat="server">
+        <table runat="server" class="zebra">
             <tr runat="server">
                 <td runat="server">
                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
@@ -46,12 +46,12 @@
                     <tr>
                         <td>Нет данных.</td>
                     </tr>
-                </table>
+                </table >
             </EmptyDataTemplate>
            
         <ItemTemplate>
-            <div class='<%# Container.DataItemIndex % 2 %>'>
-              <tr style="background-color: #FFFFFF;color: #000000;">  
+            <div>
+              <tr class="<%# Container.DisplayIndex % 2 == 0 ? "" : "odd" %>">  
                  <td><%# Eval("Id") %></td>
                 <td><%# Eval("DateTime") %></td>
                 <td><%# Eval("Result") %></td>

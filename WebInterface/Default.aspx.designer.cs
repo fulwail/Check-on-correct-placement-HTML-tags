@@ -33,12 +33,12 @@ namespace WebInterface
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ListWiewResult элемент управления.
+        /// ListViewResult элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListWiewResult;
+        protected global::System.Web.UI.WebControls.ListView ListViewResult;
     }
 }
