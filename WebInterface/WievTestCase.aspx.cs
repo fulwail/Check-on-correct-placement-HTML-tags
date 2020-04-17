@@ -36,6 +36,7 @@ namespace WebInterface
             TextBoxId.Visible = true;
             TextBoxId.Height = default;
             TextBoxId.Width = default;
+            TextBoxId.Text = "";
             TextBoxId.TextMode = TextBoxMode.SingleLine;
             Label1.Text = "Введите Id тестового примера";
             FileUpload1.Visible = false;
@@ -47,6 +48,7 @@ namespace WebInterface
             TextBoxId.Height = 500;
             TextBoxId.Width = 500;
             TextBoxId.TextMode = TextBoxMode.MultiLine;
+            TextBoxId.Text = "";
             Label1.Text = "Введите тестовый пример";
             FileUpload1.Visible = false;
         }
@@ -88,11 +90,10 @@ namespace WebInterface
             {
                 try
                 {
+                    FileUpload1.Visible = false;
                     DataServiceContext dataService = new DataServiceContext();
-                     
                     WorkWithWeb verification = new WorkWithWeb();   
                     verification.CheckOnCorrectPlacement(dataService.ReadId(Convert.ToInt32(TextBoxId.Text)));
-                    FileUpload1.Visible = false;
                     Label2.Text = "Проверка произошла успешно";
                 }
                 catch (Exception ex)
@@ -105,15 +106,16 @@ namespace WebInterface
             {
                 try
                 {
+                    FileUpload1.Visible = false;
                     WorkWithWeb verification = new WorkWithWeb();
                     verification.CheckOnCorrectPlacement(TextBoxId.Text);
-                    FileUpload1.Visible = false;
                     Label2.Text = "Проверка произошла успешно";
                 }
 
                 catch (Exception ex)
                 {
                     Label2.Text = ($"Ошибка при вводе текста: {ex.Message}");
+                    FileUpload1.Visible = false;
                     return;
                 }             
             }
