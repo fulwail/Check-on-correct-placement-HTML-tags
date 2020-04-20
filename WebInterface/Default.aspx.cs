@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AutoMapper;
 using DataService;
 using DataService.Model;
-using WebInterface.Models;
 
 namespace WebInterface
 {
@@ -14,18 +14,11 @@ namespace WebInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             var data = new DataServiceContext();
-            ListViewResult.DataSource = data.GetChekingResult().Select(x => new ResultOfCheckingViewModel
-            {
-                Id = x.Id,
-                DateTime = x.DateTime.ToShortDateString(),
-                Result = x.Result,
-                CountToken = x.CountToken
-            });
+            var source = data.GetChekingResult().Select(x => Mapper.Map<ResultOfCheckingDto>(x));
+            var result = Mapper.Map<IEnumerable<ResultOfCheckingDto>, IEnumerable<ResultOfCheckingViewModel>> (source);
+            ListViewResult.DataSource = result;
             ListViewResult.DataBind();
         }
-
-       
     }
 }

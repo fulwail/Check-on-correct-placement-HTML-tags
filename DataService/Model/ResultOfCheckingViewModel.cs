@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebInterface.Models
-{
+namespace DataService.Model
+{ 
     public class ResultOfCheckingViewModel
     {
         public int Id { get; set; }

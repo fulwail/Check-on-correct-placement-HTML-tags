@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 using DataService.Model;
 using SqlDatabase.Model;
 
+
+
 namespace DataService
 {
     public class DataServiceContext
-    { 
+    {
+       
+     
         public IEnumerable<ResultOfCheckingDto> GetChekingResult()
         {
             var db = new DatabaseContext();
