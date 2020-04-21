@@ -10,7 +10,7 @@ using SqlDatabase;
 
 namespace CheckOnCorrectPlacement
 {
-    class FileSource : ISource
+  public  class FileSource : ISource
     {
         public string ReadSource(string context)
         {

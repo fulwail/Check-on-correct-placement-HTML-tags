@@ -50,13 +50,12 @@ namespace CheckOnCorrectPlacement
 
         private void GetDictionaryTokenInternal(string beginTokenName, string endTokenName)
         {
+            ConfigurationHelper helper = new ConfigurationHelper();
+            Dictionary<string, string> hookStorage = helper.GetDictionaryTokenInternal("BeginToken", "EndToken");
             string[] beginWord = ConfigurationManager.AppSettings[beginTokenName].Split(new char[] { ' ' });
-            string[] endWord = ConfigurationManager.AppSettings[endTokenName].Split(new char[] { ' ' });
             string token = "";
-            Dictionary<string, string> hookStorage = new Dictionary<string, string>();
             for (int i = 0; i < beginWord.Count(); i++)
             {
-                hookStorage.Add(beginWord[i], endWord[i]);
                 token += beginWord[i] + ",";
             }
             this._configuration.Add("Проверено на комбинацию лексем: " + token);

@@ -8,7 +8,7 @@ namespace CheckOnCorrectPlacement
 {
     public interface IVerification
     {
-        string InputData { get; set; }
+        bool searchResult { get; set; }
         void CheckOnCorrectPlacement(string sourceType);
     }
 }

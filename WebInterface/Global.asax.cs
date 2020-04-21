@@ -1,6 +1,7 @@
 ﻿using System;
 using AutoMapper;
-using DataService.Model;
+using WebInterface.ViewModelProfile;
+
 
 
 namespace WebInterface
@@ -12,7 +13,7 @@ namespace WebInterface
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<ResultOfCheckingDto, ResultOfCheckingViewModel>();
+                cfg.AddProfile<CheckResultViewModelProfile>();
             });
         }
        

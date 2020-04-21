@@ -16,7 +16,7 @@ namespace DataService
     {
        
      
-        public IEnumerable<ResultOfCheckingDto> GetChekingResult()
+        public IEnumerable<ResultOfCheckingDto> GetResultOfCheckingDto()
         {
             var db = new DatabaseContext();
             var result = from r in db.ResultOfCheckings
@@ -29,7 +29,7 @@ namespace DataService
                          };
                 return result;    
         }
-        public string ReadId(int id)
+        public string GetTestCaseById(int id)
         {
             DatabaseContext db = new DatabaseContext();
 
@@ -41,7 +41,7 @@ namespace DataService
         }
 
 
-        public void WriteToDestination(bool searchresult, int count)
+        public void AddResultOfCheking(bool searchresult, int count)
         {
             using (DatabaseContext db = new DatabaseContext())
             {

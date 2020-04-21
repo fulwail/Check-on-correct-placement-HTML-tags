@@ -29,7 +29,9 @@ namespace WebInterface
         {
             TextBoxId.Visible = false;
             Label1.Text = "";
+            Label2.Text = "";
             FileUpload1.Visible = true;
+
         }
         protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
@@ -40,7 +42,8 @@ namespace WebInterface
             TextBoxId.TextMode = TextBoxMode.SingleLine;
             Label1.Text = "Введите Id тестового примера";
             FileUpload1.Visible = false;
-          
+            Label2.Text = "";
+
         }
         protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
         {
@@ -51,6 +54,7 @@ namespace WebInterface
             TextBoxId.Text = "";
             Label1.Text = "Введите тестовый пример";
             FileUpload1.Visible = false;
+            Label2.Text = "";
         }
 
         protected void CheckButton_Click(object sender, EventArgs e)
@@ -75,11 +79,12 @@ namespace WebInterface
                         }
                         else
                         {
-                            
-
-                            FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
-                            WorkWithWeb verification = new WorkWithWeb();
-                            string text= verification.ReadText(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
+                            string text;
+                            using (StreamReader sr = new StreamReader(FileUpload1.FileContent))
+                            {
+                                text = sr.ReadToEnd();
+                            }      
+                            IVerification verification = new VerificationWeb();
                             verification.CheckOnCorrectPlacement(text) ;
                             Label2.Text = "Проверка произошла успешно";
                         }
@@ -90,11 +95,8 @@ namespace WebInterface
             {
                 try
                 {
-                    FileUpload1.Visible = false;
                     DataServiceContext dataService = new DataServiceContext();
-                    WorkWithWeb verification = new WorkWithWeb();   
-                    verification.CheckOnCorrectPlacement(dataService.ReadId(Convert.ToInt32(TextBoxId.Text)));
-                    Label2.Text = "Проверка произошла успешно";
+                    GetResult(dataService.GetTestCaseById(Convert.ToInt32(TextBoxId.Text)));
                 }
                 catch (Exception ex)
                 {
@@ -106,24 +108,27 @@ namespace WebInterface
             {
                 try
                 {
-                    FileUpload1.Visible = false;
-                    WorkWithWeb verification = new WorkWithWeb();
-                    verification.CheckOnCorrectPlacement(TextBoxId.Text);
-                    Label2.Text = "Проверка произошла успешно";
+                    GetResult(TextBoxId.Text);
                 }
 
                 catch (Exception ex)
                 {
                     Label2.Text = ($"Ошибка при вводе текста: {ex.Message}");
-                    FileUpload1.Visible = false;
                     return;
                 }             
             }
+            
 
         }
+        public void GetResult(string text)
+        {
+            FileUpload1.Visible = false;
+            IVerification verification = new VerificationWeb();
+            verification.CheckOnCorrectPlacement(text);
+            Label2.Text = $"Результат проверки: {verification.searchResult}";
+        }
 
-       
 
-       
+
     }
 }

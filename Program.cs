@@ -14,7 +14,6 @@ namespace CheckOnCorrectPlacement
         static void Main(string[] args)
         {
             IVerification verification = new Verification();
-            verification.InputData = Console.ReadLine();
             verification.CheckOnCorrectPlacement("DatabaseSource");
             Console.ReadKey();
         }

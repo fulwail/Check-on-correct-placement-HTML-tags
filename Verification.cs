@@ -11,8 +11,7 @@ namespace CheckOnCorrectPlacement
 {
    public class Verification : IVerification
     {
-        public string InputData { get; set; }
-
+        public bool searchResult { get; set; }
         public void CheckOnCorrectPlacement(string sourceType)
         {
 
@@ -32,7 +31,7 @@ namespace CheckOnCorrectPlacement
                 string text;
                 try
                 {
-                    text = source.ReadSource(InputData);
+                    text = source.ReadSource(Console.ReadLine());
                 }
 
                 catch (Exception ex)
@@ -40,7 +39,7 @@ namespace CheckOnCorrectPlacement
                     Console.WriteLine($"{config.ExceptionText} {ex.Message}");
                     return;
                 }
-                bool searchResult = hook.CheckHooks(text, config.HooksStorage);
+                searchResult = hook.CheckHooks(text, config.HooksStorage);
                 try
                 {
                     source.WriteToDestination(searchResult, hook.count);

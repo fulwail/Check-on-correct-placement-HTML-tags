@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using AutoMapper;
 using DataService;
 using DataService.Model;
+using WebInterface.ViewModels;
 
 namespace WebInterface
 {
@@ -15,7 +16,7 @@ namespace WebInterface
         protected void Page_Load(object sender, EventArgs e)
         {
             var data = new DataServiceContext();
-            var source = data.GetChekingResult().Select(x => Mapper.Map<ResultOfCheckingDto>(x));
+            var source = data.GetResultOfCheckingDto();
             var result = Mapper.Map<IEnumerable<ResultOfCheckingDto>, IEnumerable<ResultOfCheckingViewModel>> (source);
             ListViewResult.DataSource = result;
             ListViewResult.DataBind();
