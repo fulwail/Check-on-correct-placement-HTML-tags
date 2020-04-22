@@ -25,7 +25,6 @@ namespace CheckOnCorrectPlacement
         {
             _configuration.BuildDictionaryToken();
             _configuration.BuildExceptionDatabase();  
-  
         }
         public void BuildForSource(ISource source)
         {

@@ -11,8 +11,8 @@ namespace CheckOnCorrectPlacement
 {
    public class Verification : IVerification
     {
-        public bool searchResult { get; set; }
-        public void CheckOnCorrectPlacement(string sourceType)
+      
+        public bool  CheckOnCorrectPlacement(string sourceType)
         {
 
             var container = ContainerConfig.Configure();
@@ -37,9 +37,9 @@ namespace CheckOnCorrectPlacement
                 catch (Exception ex)
                 {
                     Console.WriteLine($"{config.ExceptionText} {ex.Message}");
-                    return;
+                    return false;
                 }
-                searchResult = hook.CheckHooks(text, config.HooksStorage);
+                bool searchResult = hook.CheckHooks(text, config.HooksStorage);
                 try
                 {
                     source.WriteToDestination(searchResult, hook.count);
@@ -48,19 +48,11 @@ namespace CheckOnCorrectPlacement
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Описание ошибки при выводе результатов проверки:{ex.Message}");
-                    return;
+                    return false;
                 }
                
                 Console.WriteLine(config.ListParts());
-
-                if (searchResult)
-                {
-                    Console.WriteLine(text + "\n Скобки были расставлены правильно");
-                }
-                else
-                {
-                    Console.WriteLine(text + " \n Скобки были расставлены не правильно!!!");
-                }
+                return searchResult;
             }
            
         }

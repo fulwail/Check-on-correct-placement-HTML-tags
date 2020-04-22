@@ -15,15 +15,10 @@ namespace WebInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-        }
-
-        private void change(object sender, EventArgs e)
-        {
+            if (RadioButton1.Checked==false)
+                 FileUpload1.Visible = false;
 
         }
-
-
 
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -31,7 +26,6 @@ namespace WebInterface
             Label1.Text = "";
             Label2.Text = "";
             FileUpload1.Visible = true;
-
         }
         protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
@@ -83,10 +77,8 @@ namespace WebInterface
                             using (StreamReader sr = new StreamReader(FileUpload1.FileContent))
                             {
                                 text = sr.ReadToEnd();
-                            }      
-                            IVerification verification = new VerificationWeb();
-                            verification.CheckOnCorrectPlacement(text) ;
-                            Label2.Text = "Проверка произошла успешно";
+                            }
+                            GetResult(text);
                         }
                     }
                 }
@@ -122,10 +114,9 @@ namespace WebInterface
         }
         public void GetResult(string text)
         {
-            FileUpload1.Visible = false;
             IVerification verification = new VerificationWeb();
-            verification.CheckOnCorrectPlacement(text);
-            Label2.Text = $"Результат проверки: {verification.searchResult}";
+            bool searchResult=verification.CheckOnCorrectPlacement(text);
+            Label2.Text = $"Результат проверки: {searchResult}";
         }
 
 

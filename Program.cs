@@ -14,7 +14,16 @@ namespace CheckOnCorrectPlacement
         static void Main(string[] args)
         {
             IVerification verification = new Verification();
-            verification.CheckOnCorrectPlacement("DatabaseSource");
+            Console.WriteLine("Введите Id для проверки");
+          var searchResult=  verification.CheckOnCorrectPlacement("DatabaseSource");
+            if (searchResult)
+            {
+                Console.WriteLine("Скобки были расставлены правильно");
+            }
+            else
+            {
+                Console.WriteLine("Скобки были расставлены не правильно!!!");
+            }
             Console.ReadKey();
         }
     }
