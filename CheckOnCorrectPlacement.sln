@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebInterface", "WebInterfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{DE8C9598-A644-4DEF-B8D6-4008CFA33F06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckEngine", "CheckEngine\CheckEngine.csproj", "{3A52B930-589A-480D-9BB9-F46DA1734871}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,26 @@ Global
 		{DE8C9598-A644-4DEF-B8D6-4008CFA33F06}.Release|x64.Build.0 = Release|Any CPU
 		{DE8C9598-A644-4DEF-B8D6-4008CFA33F06}.Release|x86.ActiveCfg = Release|Any CPU
 		{DE8C9598-A644-4DEF-B8D6-4008CFA33F06}.Release|x86.Build.0 = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|x64.Build.0 = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Debug|x86.Build.0 = Debug|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|ARM.Build.0 = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|ARM64.Build.0 = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|x64.ActiveCfg = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|x64.Build.0 = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|x86.ActiveCfg = Release|Any CPU
+		{3A52B930-589A-480D-9BB9-F46DA1734871}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

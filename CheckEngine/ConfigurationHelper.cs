@@ -4,8 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CheckEngine;
 
-namespace CheckOnCorrectPlacement
+namespace CheckEngine
 {
     public class ConfigurationHelper
     {

@@ -96,6 +96,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="VerificationWeb.cs" />
     <Compile Include="ViewModels\ResultOfCheckingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelProfile\CheckResultViewModelProfile .cs" />
@@ -120,9 +121,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CheckOnCorrectPlacement.csproj">
-      <Project>{c679a5e8-f245-46da-99fb-cc7b7a18db9c}</Project>
-      <Name>CheckOnCorrectPlacement</Name>
+    <ProjectReference Include="..\CheckEngine\CheckEngine.csproj">
+      <Project>{3a52b930-589a-480d-9bb9-f46da1734871}</Project>
+      <Name>CheckEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataService\DataService.csproj">
       <Project>{de8c9598-a644-4def-b8d6-4008cfa33f06}</Project>

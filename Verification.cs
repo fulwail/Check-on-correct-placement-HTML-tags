@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using CheckEngine;
 
 namespace CheckOnCorrectPlacement
 {
@@ -51,7 +52,7 @@ namespace CheckOnCorrectPlacement
                     return false;
                 }
                
-                Console.WriteLine(config.ListParts());
+                Console.WriteLine(text+ "\n" + config.ListParts());
                 return searchResult;
             }
            

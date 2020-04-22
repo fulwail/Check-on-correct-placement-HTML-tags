@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.IO;
-using SqlDatabase.Model;
-
-using SqlDatabase;
+using DataService;
 
 
 
@@ -19,28 +17,16 @@ namespace CheckOnCorrectPlacement
        
         public string ReadSource(string context)
         {
-            DatabaseContext db = new DatabaseContext();
-           
-                var database = db.TestСases;
-                int id = Convert.ToInt32(context);
-                string text = (from c in db.TestСases
-                               where c.Id == id
-                               select c.Text).SingleOrDefault();
+            DataServiceContext dataService = new DataServiceContext();
+            string text = dataService.GetTestCaseById(Convert.ToInt32(context)); 
                 return text;
         }
        
 
         public void WriteToDestination(bool searchresult,int count)
         {
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var result = new ResultOfChecking();
-                result.DateTime = DateTime.Now;
-                result.Result = Convert.ToString(searchresult);
-                result.CountToken = count;
-                db.ResultOfCheckings.Add(result);
-                db.SaveChanges();
-            }
+            DataServiceContext dataService = new DataServiceContext();
+           dataService.AddResultOfCheking(searchresult,count);
         }
     }
 }

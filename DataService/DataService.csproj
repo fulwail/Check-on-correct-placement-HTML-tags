@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="DataServiceContext.cs" />
     <Compile Include="Model\ResultOfCheckingDto.cs" />
+    <Compile Include="Model\TestCaseDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

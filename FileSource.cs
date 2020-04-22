@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.IO;
-using SqlDatabase.Model;
-using SqlDatabase;
+
 
 namespace CheckOnCorrectPlacement
 {

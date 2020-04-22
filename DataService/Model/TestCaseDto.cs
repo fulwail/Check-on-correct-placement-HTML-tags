@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CheckOnCorrectPlacement
+namespace DataService.Model
 {
-    public interface IVerification
+   public class TestCaseDto
     {
-      
-        bool CheckOnCorrectPlacement(string sourceType);
+        public int Id { get; set; }
+        public string Text { get; set; }
     }
 }

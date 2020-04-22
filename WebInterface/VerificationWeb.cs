@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataService;
+using CheckEngine;
 
-namespace CheckOnCorrectPlacement
+namespace WebInterface
 {
    public class VerificationWeb : IVerification
     {
